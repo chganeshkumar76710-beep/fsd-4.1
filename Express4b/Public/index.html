@@ -1,86 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Item Management SPA</title>
-
+    <meta name="theme-color" content="#101b20">
+    <title>Star Catch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <main class="game" aria-label="Star Catch game">
+        <canvas id="gameCanvas" aria-label="Game field. Move the basket to catch falling stars."></canvas>
 
-    <div class="container">
+        <header class="hud">
+            <a class="wordmark" href="#" aria-label="Star Catch home">
+                <span class="wordmark-icon" aria-hidden="true">✳</span>
+                <span>STAR<br>CATCH</span>
+            </a>
 
-        <h1>Item Management SPA</h1>
+            <div class="score-panel" aria-label="Current score">
+                <span class="eyebrow">SCORE</span>
+                <span class="score-value" id="score" aria-live="polite">00</span>
+            </div>
 
-        <!-- Item Form -->
-        <div class="form-container">
+            <div class="lives-panel" aria-label="Lives remaining">
+                <span class="eyebrow">LIVES</span>
+                <span class="life-dots" id="lives" aria-live="polite"></span>
+            </div>
+        </header>
 
-            <h2>Add / Update Item</h2>
-
-            <form id="itemForm">
-
-                <input
-                    type="text"
-                    id="name"
-                    placeholder="Item Name"
-                    required
-                >
-
-                <textarea
-                    id="description"
-                    placeholder="Description"
-                    required
-                ></textarea>
-
-                <input
-                    type="number"
-                    id="price"
-                    placeholder="Price"
-                    step="0.01"
-                    required
-                >
-
-                <select id="stockStatus" required>
-                    <option value="">Select Stock Status</option>
-                    <option value="In Stock">In Stock</option>
-                    <option value="Out of Stock">Out of Stock</option>
-                </select>
-
-                <button type="submit" id="submitBtn">
-                    Add Item
-                </button>
-
-                <button
-                    type="button"
-                    id="cancelBtn"
-                    onclick="cancelEdit()"
-                    style="display:none;"
-                >
-                    Cancel
-                </button>
-
-            </form>
-
+        <div class="level-mark" aria-hidden="true">
+            <span class="level-line"></span>
+            <span>THE NIGHT SKY</span>
         </div>
 
+        <section class="start-screen" id="startScreen" aria-labelledby="screenTitle">
+            <p class="screen-kicker" id="screenKicker">A LITTLE GAME OF TIMING</p>
+            <h1 id="screenTitle">Catch the<br><span>light.</span></h1>
+            <p class="screen-copy" id="screenCopy">Move your basket beneath the falling stars.<br>Miss three, and the night is over.</p>
+            <button class="play-button" id="playButton" type="button">
+                <span id="buttonLabel">Start catching</span>
+                <span class="button-arrow" aria-hidden="true">↗</span>
+            </button>
+            <p class="control-hint">DRAG TO MOVE <span>·</span> ← →</p>
+        </section>
 
-        <!-- Item List -->
-        <div class="items-container">
-
-            <h2>Item List</h2>
-
-            <div id="itemList"></div>
-
+        <div class="bottom-note" aria-hidden="true">
+            <span>KEEP YOUR EYES UP</span>
+            <span class="bottom-coordinate">EST. UNDER THE STARS</span>
         </div>
-
-    </div>
-
+    </main>
     <script src="app.js"></script>
-
 </body>
-
 </html>
